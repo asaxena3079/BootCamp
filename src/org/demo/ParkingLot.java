@@ -1,19 +1,26 @@
 package org.demo;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ParkingLot {
 
     private ParkingLotOwner parkingLotOwner;
     private int totalCapacity;
     private int countCapacity=0;
+    List<FbiAgent> lst = new ArrayList<FbiAgent>();
+
 
     public ParkingLot(int totalCapacity,ParkingLotOwner parkingLotOwner)
     {
         this.totalCapacity = totalCapacity;
         this.parkingLotOwner = parkingLotOwner;
     }
+
+    /*public ParkingLot(int totalCapacity,List<FbiAgent> lst)
+    {
+        this.totalCapacity = totalCapacity;
+        this.lst = lst;
+    }*/
 
     Map<Integer,Car> parkingMap = new HashMap<Integer,Car>();
 
@@ -30,6 +37,13 @@ public class ParkingLot {
             if(isParkingFull())
             {
                 parkingLotOwner.onFull();
+
+                Iterator<FbiAgent> it = lst.iterator();
+
+                if(it.hasNext())
+                {
+                    it.next().onFull();
+                }
             }
             return countCapacity;
         }
@@ -59,6 +73,13 @@ public class ParkingLot {
             if(isParkingFull())
             {
                 parkingLotOwner.onVacancy();
+
+                Iterator<FbiAgent> it = lst.iterator();
+
+                if(it.hasNext())
+                {
+                    it.next().onVacancy();
+                }
             }
             Car car =  parkingMap.get(token);
             parkingMap.remove(token);

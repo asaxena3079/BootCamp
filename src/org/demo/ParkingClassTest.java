@@ -3,6 +3,9 @@ package org.demo;
 import org.junit.Before;
 import org.junit.Test;
 
+/*import java.util.ArrayList;
+import java.util.List;*/
+
 import static org.junit.Assert.*;
 
 public class ParkingClassTest{
@@ -71,6 +74,14 @@ public class ParkingClassTest{
     public void isParkingFull()
     {
         TestOwner owner = new TestOwner();
+
+        /*List<FbiAgent> lst = new ArrayList<FbiAgent>();
+        FbiAgent fbi1 = new FbiAgent();
+        FbiAgent fbi2 = new FbiAgent();
+        lst.add(fbi1);
+        lst.add(fbi2);*/
+
+
         parkingLot = new ParkingLot(2,owner);
         int token = parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
@@ -97,5 +108,7 @@ public class ParkingClassTest{
             notifiedVacancy = true;
         }
     }
+
+
 
 }
