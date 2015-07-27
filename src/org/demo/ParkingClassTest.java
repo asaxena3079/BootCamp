@@ -1,17 +1,25 @@
 package org.demo;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ParkingClassTest {
+public class ParkingClassTest{
 
-    ParkingLot parkingLot;
+    private ParkingLot parkingLot;
+    private ParkingLotOwner parkingLotOwner;
+
+    @Before
+    public void setup()
+    {
+        parkingLotOwner = new ParkingLotOwner();
+    }
 
     @Test
     public void testParkWhenParkingAvailable() throws Exception {
 
-        parkingLot = new ParkingLot(10);
+        parkingLot = new ParkingLot(10,parkingLotOwner);
         int slotNo = parkingLot.park(new Car(1));
         int slotNo2 = parkingLot.park(new Car(2));
 
@@ -22,7 +30,7 @@ public class ParkingClassTest {
     @Test(expected = ParkingFullException.class)
     public void testParkWhenParkingNotAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(2);
+        parkingLot = new ParkingLot(2,parkingLotOwner);
         parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
         parkingLot.park(new Car(3));
@@ -31,12 +39,9 @@ public class ParkingClassTest {
     @Test
     public void testUnparkWhenCarAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(10);
+        parkingLot = new ParkingLot(10,parkingLotOwner);
         Car car1 = new Car(1);
-        Car car2 = new Car(2);
         int slotNo = parkingLot.park(car1);
-        int slotNo2 = parkingLot.park(car2);
-
 
         assertEquals(car1, parkingLot.unpark(slotNo));
 
@@ -45,23 +50,52 @@ public class ParkingClassTest {
     @Test(expected = CarNotFoundException.class)
     public void testUnparkWhenCarNotAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(10);
+        parkingLot = new ParkingLot(10,parkingLotOwner);
         Car car1 = new Car(1);
-        int slotNo = parkingLot.park(car1);
-        int slotNo2 = 2;
-        parkingLot.unpark(slotNo2);
+        parkingLot.park(car1);
+        int slotNo = 2;
+        parkingLot.unpark(slotNo);
 
     }
 
     @Test(expected = CarAlreadyPresent.class)
     public void testIsCarAlreadyPresent()
     {
-        parkingLot = new ParkingLot(10);
+        parkingLot = new ParkingLot(10,parkingLotOwner);
         Car car = new Car(1);
         parkingLot.park(car);
         parkingLot.park(car);
     }
 
+    @Test
+    public void isParkingFull()
+    {
+        TestOwner owner = new TestOwner();
+        parkingLot = new ParkingLot(2,owner);
+        int token = parkingLot.park(new Car(1));
+        parkingLot.park(new Car(2));
+        assertEquals(true, owner.notifiedFull);
 
+        parkingLot.unpark(token);
+        assertEquals(true, owner.notifiedVacancy);
+
+    }
+
+    public class TestOwner extends ParkingLotOwner
+    {
+        public boolean notifiedFull = false;
+        public boolean notifiedVacancy = false;
+
+        @Override
+        public void onFull() {
+            notifiedFull = true;
+        }
+
+        @Override
+        public void  onVacancy()
+        {
+            notifiedVacancy = true;
+        }
+    }
 
 }

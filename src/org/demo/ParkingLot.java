@@ -1,25 +1,23 @@
 package org.demo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
 
+    private ParkingLotOwner parkingLotOwner;
     private int totalCapacity;
     private int countCapacity=0;
 
-    public ParkingLot(int totalCapacity) {
+    public ParkingLot(int totalCapacity,ParkingLotOwner parkingLotOwner)
+    {
         this.totalCapacity = totalCapacity;
-    }
-
-    public int getCountCapacity() {
-        return countCapacity;
+        this.parkingLotOwner = parkingLotOwner;
     }
 
     Map<Integer,Car> parkingMap = new HashMap<Integer,Car>();
 
+    //Park the car along with the check of parking full and notify Owner on full parking
     public int park(Car car)
     {
         if(parkingMap.containsValue(car))
@@ -29,29 +27,47 @@ public class ParkingLot {
         {
             countCapacity++;
             parkingMap.put(countCapacity,car);
+            if(isParkingFull())
+            {
+                parkingLotOwner.onFull();
+            }
             return countCapacity;
         }
         else
+        {
             throw new ParkingFullException("Parking Full");
+        }
     }
 
+    //Check whether parking is available or not
     public boolean isParkingAvailable()
     {
-        if(parkingMap.size()<totalCapacity)
-            return true;
-        else
-            return false;
+        return parkingMap.size() < totalCapacity;
     }
 
+    //Check whether the parking is full
+    public boolean isParkingFull()
+    {
+        return parkingMap.size() == totalCapacity;
+    }
 
-    public Car unpark(int slotNo) {
-        if(parkingMap.containsValue(parkingMap.get(slotNo)))
+    //Unpark the car and notify Owner after vacancy creation
+    public Car unpark(int token)
+    {
+        if(parkingMap.containsValue(parkingMap.get(token)))
         {
-            Car car =  parkingMap.get(slotNo);
-            parkingMap.remove(slotNo);
+            if(isParkingFull())
+            {
+                parkingLotOwner.onVacancy();
+            }
+            Car car =  parkingMap.get(token);
+            parkingMap.remove(token);
             return car;
         }
         else
+        {
             throw new CarNotFoundException("Car Not Found");
+        }
     }
+
 }
