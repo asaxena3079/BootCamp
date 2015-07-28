@@ -13,7 +13,7 @@ public class ParkingClassTest{
     @Before
     public void setup()
     {
-        parkingLotObserver = new ParkinLotTestOwner();
+        parkingLotObserver = new ParkinLotTestObserver();
     }
 
     @Test
@@ -70,15 +70,15 @@ public class ParkingClassTest{
     @Test
     public void ifParkingFullOrVacancyCreatedThenOwnerGetsNotification()
     {
-        ParkinLotTestOwner owner = new ParkinLotTestOwner();
+        ParkinLotTestObserver owner = new ParkinLotTestObserver();
 
         parkingLot = new ParkingLot(2,owner);
         int token = parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
-        assertEquals(true, owner.notifiedFull);
+        assertEquals(NotificationStatus.FULL, owner.notify);
 
         parkingLot.unpark(token);
-        assertEquals(true, owner.notifiedVacancy);
+        assertEquals(NotificationStatus.AVAILABLE, owner.notify);
 
     }
 
@@ -86,71 +86,50 @@ public class ParkingClassTest{
     @Test
     public void ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification()
     {
-        ParkinLotTestOwner owner = new ParkinLotTestOwner();
+        ParkinLotTestObserver owner = new ParkinLotTestObserver();
         parkingLot = new ParkingLot(2,owner);
 
-        FbiAgentTestOwner fbi1 = new FbiAgentTestOwner();
-        FbiAgentTestOwner fbi2 = new FbiAgentTestOwner();
-        FbiAgentTestOwner fbi3 = new FbiAgentTestOwner();
-        parkingLot.registerAgent(fbi1);
-        parkingLot.registerAgent(fbi2);
-        parkingLot.registerAgent(fbi3);
+        ParkinLotTestObserver fbi1 = new ParkinLotTestObserver();
+        ParkinLotTestObserver fbi2 = new ParkinLotTestObserver();
+        ParkinLotTestObserver fbi3 = new ParkinLotTestObserver();
+        parkingLot.subscribeAgent(fbi1);
+        parkingLot.subscribeAgent(fbi2);
+        parkingLot.subscribeAgent(fbi3);
 
         int token = parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
-        assertTrue(fbi1.isOnFullCalled());
-        assertTrue(fbi2.isOnFullCalled());
-        assertTrue(fbi3.isOnFullCalled());
+        assertEquals(NotificationStatus.FULL, fbi1.notify);
+        assertEquals(NotificationStatus.FULL, fbi2.notify);
+        assertEquals(NotificationStatus.FULL, fbi3.notify);
 
         parkingLot.unpark(token);
-        assertTrue(fbi1.isOnVacancyCalled());
-        assertTrue(fbi2.isOnVacancyCalled());
-        assertTrue(fbi3.isOnVacancyCalled());
+        assertEquals(NotificationStatus.AVAILABLE, fbi1.notify);
+        assertEquals(NotificationStatus.AVAILABLE, fbi2.notify);
+        assertEquals(NotificationStatus.AVAILABLE, fbi3.notify);
     }
 
-    public class ParkinLotTestOwner implements ParkingLotObserver
+    public class ParkinLotTestObserver implements ParkingLotObserver
     {
-        public boolean notifiedFull = false;
-        public boolean notifiedVacancy = false;
+
+        NotificationStatus notify = null;
 
         @Override
-        public void onFull() {
-            notifiedFull = true;
-        }
-
-        @Override
-        public void  onVacancy()
+        public void notified(NotificationStatus notify)
         {
-            notifiedVacancy = true;
+            this.notify = notify;
         }
     }
 
-    public class FbiAgentTestOwner implements ParkingLotObserver
+    /*public class FbiAgentTestOwner implements ParkingLotObserver
     {
-        public boolean notifiedFull = false;
-        public boolean notifiedVacancy = false;
+        NotificationStatus notify = null;
 
         @Override
-        public void onFull() {
-            notifiedFull = true;
-        }
-
-        @Override
-        public void  onVacancy()
+        public void notified(NotificationStatus notify)
         {
-            notifiedVacancy = true;
+            this.notify = notify;
         }
-
-        public boolean isOnFullCalled()
-        {
-            return notifiedFull;
-        }
-
-        public boolean isOnVacancyCalled()
-        {
-            return notifiedVacancy;
-        }
-    }
+    }*/
 
 
 

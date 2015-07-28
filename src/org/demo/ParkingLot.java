@@ -7,7 +7,7 @@ public class ParkingLot {
     private ParkingLotObserver parkingLotObserver;
     private int totalCapacity;
     private int countCapacity=0;
-    List<ParkingLotObserver> lst = new ArrayList<ParkingLotObserver>();
+    List<ParkingLotObserver> observers = new ArrayList<ParkingLotObserver>();
 
 
     public ParkingLot(int totalCapacity,ParkingLotObserver parkingLotObserver)
@@ -16,7 +16,7 @@ public class ParkingLot {
         this.parkingLotObserver = parkingLotObserver;
     }
 
-    Map<Integer,Car> parkingMap = new HashMap<Integer,Car>();
+    Map<Integer,Car> parkingMap = new HashMap<>();
 
     //Park the car along with the check of parking full and notify Owner on full parking
     public int park(Car car)
@@ -30,13 +30,10 @@ public class ParkingLot {
             parkingMap.put(countCapacity,car);
             if(isParkingFull())
             {
-                parkingLotObserver.onFull();
+                parkingLotObserver.notified(NotificationStatus.FULL);
 
-                Iterator<ParkingLotObserver> it = lst.iterator();
-
-                while(it.hasNext())
-                {
-                    it.next().onFull();
+                for (ParkingLotObserver observer : observers) {
+                    observer.notified(NotificationStatus.FULL);
                 }
             }
             return countCapacity;
@@ -66,13 +63,9 @@ public class ParkingLot {
         {
             if(isParkingFull())
             {
-                parkingLotObserver.onVacancy();
-
-                Iterator<ParkingLotObserver> it = lst.iterator();
-
-                while(it.hasNext())
-                {
-                    it.next().onVacancy();
+                parkingLotObserver.notified(NotificationStatus.AVAILABLE);
+                for (ParkingLotObserver observer : observers) {
+                    observer.notified(NotificationStatus.AVAILABLE);
                 }
             }
             Car car =  parkingMap.get(token);
@@ -86,16 +79,16 @@ public class ParkingLot {
     }
 
     //Reister new Agent
-    public boolean registerAgent(ParkingLotObserver fbiAgent)
+    public boolean subscribeAgent(ParkingLotObserver fbiAgent)
     {
-        lst.add(fbiAgent);
+        observers.add(fbiAgent);
         return true;
     }
 
     //Delete an existin agent
     public boolean removeAgent(ParkingLotObserver fbiAgent)
     {
-        lst.remove(fbiAgent);
+        observers.remove(fbiAgent);
         return true;
     }
 
