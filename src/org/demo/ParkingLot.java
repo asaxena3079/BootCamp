@@ -4,23 +4,17 @@ import java.util.*;
 
 public class ParkingLot {
 
-    private ParkingLotOwner parkingLotOwner;
+    private ParkingLotObserver parkingLotObserver;
     private int totalCapacity;
     private int countCapacity=0;
-    List<FbiAgent> lst = new ArrayList<FbiAgent>();
+    List<ParkingLotObserver> lst = new ArrayList<ParkingLotObserver>();
 
 
-    public ParkingLot(int totalCapacity,ParkingLotOwner parkingLotOwner)
+    public ParkingLot(int totalCapacity,ParkingLotObserver parkingLotObserver)
     {
         this.totalCapacity = totalCapacity;
-        this.parkingLotOwner = parkingLotOwner;
+        this.parkingLotObserver = parkingLotObserver;
     }
-
-    /*public ParkingLot(int totalCapacity,List<FbiAgent> lst)
-    {
-        this.totalCapacity = totalCapacity;
-        this.lst = lst;
-    }*/
 
     Map<Integer,Car> parkingMap = new HashMap<Integer,Car>();
 
@@ -36,11 +30,11 @@ public class ParkingLot {
             parkingMap.put(countCapacity,car);
             if(isParkingFull())
             {
-                parkingLotOwner.onFull();
+                parkingLotObserver.onFull();
 
-                Iterator<FbiAgent> it = lst.iterator();
+                Iterator<ParkingLotObserver> it = lst.iterator();
 
-                if(it.hasNext())
+                while(it.hasNext())
                 {
                     it.next().onFull();
                 }
@@ -72,11 +66,11 @@ public class ParkingLot {
         {
             if(isParkingFull())
             {
-                parkingLotOwner.onVacancy();
+                parkingLotObserver.onVacancy();
 
-                Iterator<FbiAgent> it = lst.iterator();
+                Iterator<ParkingLotObserver> it = lst.iterator();
 
-                if(it.hasNext())
+                while(it.hasNext())
                 {
                     it.next().onVacancy();
                 }
@@ -90,5 +84,20 @@ public class ParkingLot {
             throw new CarNotFoundException("Car Not Found");
         }
     }
+
+    //Reister new Agent
+    public boolean registerAgent(ParkingLotObserver fbiAgent)
+    {
+        lst.add(fbiAgent);
+        return true;
+    }
+
+    //Delete an existin agent
+    public boolean removeAgent(ParkingLotObserver fbiAgent)
+    {
+        lst.remove(fbiAgent);
+        return true;
+    }
+
 
 }

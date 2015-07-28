@@ -3,26 +3,23 @@ package org.demo;
 import org.junit.Before;
 import org.junit.Test;
 
-/*import java.util.ArrayList;
-import java.util.List;*/
-
 import static org.junit.Assert.*;
 
 public class ParkingClassTest{
 
     private ParkingLot parkingLot;
-    private ParkingLotOwner parkingLotOwner;
+    private ParkingLotObserver parkingLotObserver;
 
     @Before
     public void setup()
     {
-        parkingLotOwner = new ParkingLotOwner();
+        parkingLotObserver = new ParkinLotTestOwner();
     }
 
     @Test
     public void testParkWhenParkingAvailable() throws Exception {
 
-        parkingLot = new ParkingLot(10,parkingLotOwner);
+        parkingLot = new ParkingLot(10, parkingLotObserver);
         int slotNo = parkingLot.park(new Car(1));
         int slotNo2 = parkingLot.park(new Car(2));
 
@@ -33,7 +30,7 @@ public class ParkingClassTest{
     @Test(expected = ParkingFullException.class)
     public void testParkWhenParkingNotAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(2,parkingLotOwner);
+        parkingLot = new ParkingLot(2, parkingLotObserver);
         parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
         parkingLot.park(new Car(3));
@@ -42,7 +39,7 @@ public class ParkingClassTest{
     @Test
     public void testUnparkWhenCarAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(10,parkingLotOwner);
+        parkingLot = new ParkingLot(10, parkingLotObserver);
         Car car1 = new Car(1);
         int slotNo = parkingLot.park(car1);
 
@@ -53,7 +50,7 @@ public class ParkingClassTest{
     @Test(expected = CarNotFoundException.class)
     public void testUnparkWhenCarNotAvailable() throws Exception{
 
-        parkingLot = new ParkingLot(10,parkingLotOwner);
+        parkingLot = new ParkingLot(10, parkingLotObserver);
         Car car1 = new Car(1);
         parkingLot.park(car1);
         int slotNo = 2;
@@ -64,23 +61,16 @@ public class ParkingClassTest{
     @Test(expected = CarAlreadyPresent.class)
     public void testIsCarAlreadyPresent()
     {
-        parkingLot = new ParkingLot(10,parkingLotOwner);
+        parkingLot = new ParkingLot(10, parkingLotObserver);
         Car car = new Car(1);
         parkingLot.park(car);
         parkingLot.park(car);
     }
 
     @Test
-    public void isParkingFull()
+    public void ifParkingFullOrVacancyCreatedThenOwnerGetsNotification()
     {
-        TestOwner owner = new TestOwner();
-
-        /*List<FbiAgent> lst = new ArrayList<FbiAgent>();
-        FbiAgent fbi1 = new FbiAgent();
-        FbiAgent fbi2 = new FbiAgent();
-        lst.add(fbi1);
-        lst.add(fbi2);*/
-
+        ParkinLotTestOwner owner = new ParkinLotTestOwner();
 
         parkingLot = new ParkingLot(2,owner);
         int token = parkingLot.park(new Car(1));
@@ -92,7 +82,33 @@ public class ParkingClassTest{
 
     }
 
-    public class TestOwner extends ParkingLotOwner
+
+    @Test
+    public void ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification()
+    {
+        ParkinLotTestOwner owner = new ParkinLotTestOwner();
+        parkingLot = new ParkingLot(2,owner);
+
+        FbiAgentTestOwner fbi1 = new FbiAgentTestOwner();
+        FbiAgentTestOwner fbi2 = new FbiAgentTestOwner();
+        FbiAgentTestOwner fbi3 = new FbiAgentTestOwner();
+        parkingLot.registerAgent(fbi1);
+        parkingLot.registerAgent(fbi2);
+        parkingLot.registerAgent(fbi3);
+
+        int token = parkingLot.park(new Car(1));
+        parkingLot.park(new Car(2));
+        assertTrue(fbi1.isOnFullCalled());
+        assertTrue(fbi2.isOnFullCalled());
+        assertTrue(fbi3.isOnFullCalled());
+
+        parkingLot.unpark(token);
+        assertTrue(fbi1.isOnVacancyCalled());
+        assertTrue(fbi2.isOnVacancyCalled());
+        assertTrue(fbi3.isOnVacancyCalled());
+    }
+
+    public class ParkinLotTestOwner implements ParkingLotObserver
     {
         public boolean notifiedFull = false;
         public boolean notifiedVacancy = false;
@@ -106,6 +122,33 @@ public class ParkingClassTest{
         public void  onVacancy()
         {
             notifiedVacancy = true;
+        }
+    }
+
+    public class FbiAgentTestOwner implements ParkingLotObserver
+    {
+        public boolean notifiedFull = false;
+        public boolean notifiedVacancy = false;
+
+        @Override
+        public void onFull() {
+            notifiedFull = true;
+        }
+
+        @Override
+        public void  onVacancy()
+        {
+            notifiedVacancy = true;
+        }
+
+        public boolean isOnFullCalled()
+        {
+            return notifiedFull;
+        }
+
+        public boolean isOnVacancyCalled()
+        {
+            return notifiedVacancy;
         }
     }
 

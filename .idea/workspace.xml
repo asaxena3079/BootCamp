@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04abed30-bdfc-4c32-a04d-5e37937b0e74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/demo/FbiAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java" />
+      <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\ParkingLotFbiTest.class" afterPath="" />
+      <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\FbiAgent.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\ParkingLotFbiTest.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\ParkingLotOwner.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/FbiAgent.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/FbiAgent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest$TestOwner.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest$TestOwner.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLot.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLot.class" />
@@ -53,14 +58,16 @@
         <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
-                <element signature="e#214#224#0" expanded="true" />
-                <element signature="e#598#611#0" expanded="true" />
-                <element signature="e#1463#1464#0" expanded="true" />
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1601#1602#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
+                <element signature="e#230#250#0" expanded="true" />
+                <element signature="e#491#504#0" expanded="true" />
+                <element signature="e#1372#1373#0" expanded="true" />
+                <element signature="e#1428#1429#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1567#1568#0" expanded="true" />
+                <element signature="method#registerAgent#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#removeAgent#0;class#ParkingLot#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,38 +76,42 @@
       <file leaf-file-name="ParkingClassTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingClassTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7160804">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41186163">
+              <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#312#313#0" expanded="true" />
-                <element signature="e#367#368#0" expanded="true" />
                 <element signature="method#testParkWhenParkingAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testParkWhenParkingNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testUnparkWhenCarAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testUnparkWhenCarNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testIsCarAlreadyPresent#0;class#ParkingClassTest#0" expanded="false" />
-                <element signature="e#2545#2546#0" expanded="true" />
-                <element signature="e#2588#2589#0" expanded="true" />
-                <element signature="e#2650#2651#0" expanded="true" />
-                <element signature="e#2696#2697#0" expanded="true" />
+                <element signature="method#ifParkingFullOrVacancyCreatedThenOwnerGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+                <element signature="method#ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+                <element signature="class#ParkinLotTestOwner#0;class#ParkingClassTest#0" expanded="false" />
+                <element signature="e#3298#3299#0" expanded="true" />
+                <element signature="e#3341#3342#0" expanded="true" />
+                <element signature="e#3403#3404#0" expanded="true" />
+                <element signature="e#3449#3450#0" expanded="true" />
+                <element signature="class#FbiAgentTestOwner#0;class#ParkingClassTest#0" expanded="false" />
+                <element signature="e#3670#3671#0" expanded="true" />
+                <element signature="e#3713#3714#0" expanded="true" />
+                <element signature="e#3775#3776#0" expanded="true" />
+                <element signature="e#3821#3822#0" expanded="true" />
+                <element signature="e#3872#3873#0" expanded="true" />
+                <element signature="e#3915#3916#0" expanded="true" />
+                <element signature="e#3969#3970#0" expanded="true" />
+                <element signature="e#4015#4016#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParkingLotFbiTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotFbiTest.java">
+      <file leaf-file-name="ParkingLotObserver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-              <folding>
-                <element signature="e#433#443#0" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
-                <element signature="e#675#676#0" expanded="true" />
-                <element signature="e#725#726#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-              </folding>
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,6 +123,7 @@
       <list>
         <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -134,8 +146,9 @@
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLotOwner.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLotTest.java" />
         <option value="$PROJECT_DIR$/src/org/demo/FbiAgents.java" />
-        <option value="$PROJECT_DIR$/src/org/demo/FbiAgent.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLotFbiTest.java" />
+        <option value="$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java" />
+        <option value="$PROJECT_DIR$/src/org/demo/FbiAgent.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLot.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingClassTest.java" />
       </list>
@@ -442,22 +455,30 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32913387" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -523,68 +544,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotOwner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2562814">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/demo/FbiAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.085427135">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotFbiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding>
-            <element signature="e#433#443#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="e#214#224#0" expanded="true" />
-            <element signature="e#598#611#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1601#1602#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
+            <element signature="e#230#250#0" expanded="true" />
+            <element signature="e#491#504#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="method#registerAgent#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#removeAgent#0;class#ParkingLot#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7160804">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41186163">
+          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
             <element signature="method#testParkWhenParkingAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testParkWhenParkingNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testUnparkWhenCarAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testUnparkWhenCarNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testIsCarAlreadyPresent#0;class#ParkingClassTest#0" expanded="false" />
-            <element signature="e#2545#2546#0" expanded="true" />
-            <element signature="e#2588#2589#0" expanded="true" />
-            <element signature="e#2650#2651#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="method#ifParkingFullOrVacancyCreatedThenOwnerGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+            <element signature="method#ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+            <element signature="class#ParkinLotTestOwner#0;class#ParkingClassTest#0" expanded="false" />
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#3341#3342#0" expanded="true" />
+            <element signature="e#3403#3404#0" expanded="true" />
+            <element signature="e#3449#3450#0" expanded="true" />
+            <element signature="class#FbiAgentTestOwner#0;class#ParkingClassTest#0" expanded="false" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3713#3714#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+            <element signature="e#3821#3822#0" expanded="true" />
+            <element signature="e#3872#3873#0" expanded="true" />
+            <element signature="e#3915#3916#0" expanded="true" />
+            <element signature="e#3969#3970#0" expanded="true" />
+            <element signature="e#4015#4016#0" expanded="true" />
           </folding>
         </state>
       </provider>
