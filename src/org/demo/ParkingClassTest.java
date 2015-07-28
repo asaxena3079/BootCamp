@@ -36,6 +36,28 @@ public class ParkingClassTest{
         parkingLot.park(new Car(3));
     }
 
+    public void testParkWhenParkingEightyPercentFull() throws Exception{
+
+        parkingLot = new ParkingLot(5, parkingLotObserver);
+
+        ParkinLotTestObserver fbi1 = new ParkinLotTestObserver();
+        ParkinLotTestObserver fbi2 = new ParkinLotTestObserver();
+        ParkinLotTestObserver fbi3 = new ParkinLotTestObserver();
+        parkingLot.subscribeAgent(fbi1);
+        parkingLot.subscribeAgent(fbi2);
+        parkingLot.subscribeAgent(fbi3);
+
+        parkingLot.park(new Car(1));
+        parkingLot.park(new Car(2));
+        parkingLot.park(new Car(3));
+        parkingLot.park(new Car(4));
+        assertEquals(NotificationStatus.EIGHTY_FULL, fbi1.notify);
+        assertEquals(NotificationStatus.EIGHTY_FULL, fbi2.notify);
+        assertEquals(NotificationStatus.EIGHTY_FULL, fbi3.notify);
+
+
+    }
+
     @Test
     public void testUnparkWhenCarAvailable() throws Exception{
 
@@ -97,6 +119,7 @@ public class ParkingClassTest{
         parkingLot.subscribeAgent(fbi3);
 
         int token = parkingLot.park(new Car(1));
+        assertEquals(null, fbi1.notify);
         parkingLot.park(new Car(2));
         assertEquals(NotificationStatus.FULL, fbi1.notify);
         assertEquals(NotificationStatus.FULL, fbi2.notify);
@@ -120,16 +143,7 @@ public class ParkingClassTest{
         }
     }
 
-    /*public class FbiAgentTestOwner implements ParkingLotObserver
-    {
-        NotificationStatus notify = null;
 
-        @Override
-        public void notified(NotificationStatus notify)
-        {
-            this.notify = notify;
-        }
-    }*/
 
 
 

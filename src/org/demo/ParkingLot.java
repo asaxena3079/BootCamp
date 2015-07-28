@@ -5,7 +5,7 @@ import java.util.*;
 public class ParkingLot {
 
     private ParkingLotObserver parkingLotObserver;
-    private int totalCapacity;
+    private float totalCapacity;
     private int countCapacity=0;
     List<ParkingLotObserver> observers = new ArrayList<ParkingLotObserver>();
 
@@ -28,13 +28,17 @@ public class ParkingLot {
         {
             countCapacity++;
             parkingMap.put(countCapacity,car);
+
+            if(isParkingEightyPercentFull())
+            {
+                notifyObservers(observers,NotificationStatus.EIGHTY_FULL);
+            }
+
             if(isParkingFull())
             {
-                parkingLotObserver.notified(NotificationStatus.FULL);
+                notifyOwner(parkingLotObserver, NotificationStatus.FULL);
 
-                for (ParkingLotObserver observer : observers) {
-                    observer.notified(NotificationStatus.FULL);
-                }
+                notifyObservers(observers,NotificationStatus.FULL);
             }
             return countCapacity;
         }
@@ -56,6 +60,14 @@ public class ParkingLot {
         return parkingMap.size() == totalCapacity;
     }
 
+    public  boolean isParkingEightyPercentFull()
+    {
+        if((float)parkingMap.size()*100/totalCapacity>=80)
+            return  true;
+        else
+            return false;
+    }
+
     //Unpark the car and notify Owner after vacancy creation
     public Car unpark(int token)
     {
@@ -64,9 +76,8 @@ public class ParkingLot {
             if(isParkingFull())
             {
                 parkingLotObserver.notified(NotificationStatus.AVAILABLE);
-                for (ParkingLotObserver observer : observers) {
-                    observer.notified(NotificationStatus.AVAILABLE);
-                }
+
+                notifyObservers(observers, NotificationStatus.AVAILABLE);
             }
             Car car =  parkingMap.get(token);
             parkingMap.remove(token);
@@ -90,6 +101,19 @@ public class ParkingLot {
     {
         observers.remove(fbiAgent);
         return true;
+    }
+
+    public void notifyOwner(ParkingLotObserver parkingLotObserver, NotificationStatus notify)
+    {
+        parkingLotObserver.notified(notify);
+    }
+
+    public void notifyObservers(List<ParkingLotObserver> observers, NotificationStatus notify)
+    {
+        for (ParkingLotObserver observer : observers)
+        {
+            observer.notified(notify);
+        }
     }
 
 

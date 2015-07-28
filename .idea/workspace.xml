@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04abed30-bdfc-4c32-a04d-5e37937b0e74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/demo/NotificationStatus.java" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\FbiAgent.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\ParkingClassTest$FbiOwner.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\ParkingClassTest$TestOwner.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\ParkingLotFbiTest.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\ParkingLotOwner.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingClassTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLot.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLotObserver.class" afterPath="$PROJECT_DIR$/out/production/ParkingLot/org/demo/ParkingLotObserver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/demo/NotificationStatus.java" afterPath="$PROJECT_DIR$/src/org/demo/NotificationStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/demo/ParkingClassTest.java" afterPath="$PROJECT_DIR$/src/org/demo/ParkingClassTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/demo/ParkingLot.java" afterPath="$PROJECT_DIR$/src/org/demo/ParkingLot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java" afterPath="$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ParkingLot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,14 +53,17 @@
       <file leaf-file-name="ParkingLot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1960461">
-              <caret line="67" column="66" selection-start-line="67" selection-start-column="66" selection-end-line="67" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.53212523">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
               <folding>
-                <element signature="e#1359#1360#0" expanded="true" />
-                <element signature="e#1415#1416#0" expanded="true" />
-                <element signature="e#1497#1498#0" expanded="true" />
-                <element signature="e#1554#1555#0" expanded="true" />
+                <element signature="method#ParkingLot#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#park#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#isParkingEightyPercentFull#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#unpark#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#subscribeAgent#0;class#ParkingLot#0" expanded="false" />
                 <element signature="method#removeAgent#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#notifyOwner#0;class#ParkingLot#0" expanded="false" />
+                <element signature="method#notifyObservers#0;class#ParkingLot#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -75,15 +73,15 @@
         <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingClassTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+              <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
               <folding>
                 <element signature="method#testParkWhenParkingAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testParkWhenParkingNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testUnparkWhenCarAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testUnparkWhenCarNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
                 <element signature="method#testIsCarAlreadyPresent#0;class#ParkingClassTest#0" expanded="false" />
-                <element signature="e#3464#3465#0" expanded="true" />
-                <element signature="e#3508#3509#0" expanded="true" />
+                <element signature="method#ifParkingFullOrVacancyCreatedThenOwnerGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+                <element signature="class#ParkinLotTestObserver#0;class#ParkingClassTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -103,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/demo/NotificationStatus.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -142,8 +140,8 @@
         <option value="$PROJECT_DIR$/src/org/demo/FbiAgents.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLotFbiTest.java" />
         <option value="$PROJECT_DIR$/src/org/demo/FbiAgent.java" />
-        <option value="$PROJECT_DIR$/src/org/demo/NotificationStatus.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java" />
+        <option value="$PROJECT_DIR$/src/org/demo/NotificationStatus.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLot.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingClassTest.java" />
       </list>
@@ -242,7 +240,7 @@
       <recent name="org.demo" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParkingClassTest">
+  <component name="RunManager" selected="JUnit.ParkingClassTest.ifParkingFullOrVacancyCreatedThenOwnerGetsNotification">
     <configuration default="false" name="ParkingClassTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -257,6 +255,58 @@
       <option name="MAIN_CLASS_NAME" value="org.demo.ParkingClassTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParkingClassTest.ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ParkingLot" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.demo" />
+      <option name="MAIN_CLASS_NAME" value="org.demo.ParkingClassTest" />
+      <option name="METHOD_NAME" value="ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParkingClassTest.ifParkingFullOrVacancyCreatedThenOwnerGetsNotification" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ParkingLot" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.demo" />
+      <option name="MAIN_CLASS_NAME" value="org.demo.ParkingClassTest" />
+      <option name="METHOD_NAME" value="ifParkingFullOrVacancyCreatedThenOwnerGetsNotification" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -416,12 +466,16 @@
       <listeners />
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ParkingClassTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ParkingClassTest.ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ParkingClassTest.ifParkingFullOrVacancyCreatedThenOwnerGetsNotification" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ParkingClassTest" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ParkingClassTest.ifParkingFullOrVacancyCreatedThenOwnerGetsNotification" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ParkingClassTest.ifParkingFullOrVacancyCreatedThenFbiAgentGetsNotification" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ParkingClassTest" />
       </list>
     </recent_temporary>
   </component>
@@ -480,7 +534,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -539,18 +593,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/demo/NotificationStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLotObserver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -558,29 +604,40 @@
     <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
           <folding>
             <element signature="method#testParkWhenParkingAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testParkWhenParkingNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testUnparkWhenCarAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testUnparkWhenCarNotAvailable#0;class#ParkingClassTest#0" expanded="false" />
             <element signature="method#testIsCarAlreadyPresent#0;class#ParkingClassTest#0" expanded="false" />
-            <element signature="e#3464#3465#0" expanded="true" />
-            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="method#ifParkingFullOrVacancyCreatedThenOwnerGetsNotification#0;class#ParkingClassTest#0" expanded="false" />
+            <element signature="class#ParkinLotTestObserver#0;class#ParkingClassTest#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/demo/NotificationStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/demo/ParkingLot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1960461">
-          <caret line="67" column="66" selection-start-line="67" selection-start-column="66" selection-end-line="67" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.53212523">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding>
-            <element signature="e#1359#1360#0" expanded="true" />
-            <element signature="e#1415#1416#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
-            <element signature="e#1554#1555#0" expanded="true" />
+            <element signature="method#ParkingLot#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#park#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#isParkingEightyPercentFull#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#unpark#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#subscribeAgent#0;class#ParkingLot#0" expanded="false" />
             <element signature="method#removeAgent#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#notifyOwner#0;class#ParkingLot#0" expanded="false" />
+            <element signature="method#notifyObservers#0;class#ParkingLot#0" expanded="false" />
           </folding>
         </state>
       </provider>

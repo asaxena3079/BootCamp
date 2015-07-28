@@ -2,6 +2,6 @@ package org.demo;
 
 public enum NotificationStatus {
 
-    FULL,AVAILABLE;
+    FULL,AVAILABLE,EIGHTY_FULL;
 
 }
