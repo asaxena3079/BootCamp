@@ -3,6 +3,9 @@ package org.demo;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ParkingClassTest{
@@ -36,25 +39,38 @@ public class ParkingClassTest{
         parkingLot.park(new Car(3));
     }
 
+    @Test
     public void testParkWhenParkingEightyPercentFull() throws Exception{
 
         parkingLot = new ParkingLot(5, parkingLotObserver);
 
+
         ParkinLotTestObserver fbi1 = new ParkinLotTestObserver();
         ParkinLotTestObserver fbi2 = new ParkinLotTestObserver();
+        List<ParkingLotObserver> parkingLotObserverList = new ArrayList<ParkingLotObserver>();
+        parkingLotObserverList.add(fbi1);
+        parkingLotObserverList.add(fbi2);
+
         ParkinLotTestObserver fbi3 = new ParkinLotTestObserver();
-        parkingLot.subscribeAgent(fbi1);
-        parkingLot.subscribeAgent(fbi2);
-        parkingLot.subscribeAgent(fbi3);
+        ParkinLotTestObserver fbi4 = new ParkinLotTestObserver();
+        List<ParkingLotObserver> parkingLotObserverList1 = new ArrayList<ParkingLotObserver>();
+        parkingLotObserverList1.add(fbi3);
+        parkingLotObserverList1.add(fbi4);
+
+
+        parkingLot.subscribeAgentForParticularStrategies(NotificationStatus.SIXTY_FULL, parkingLotObserverList);
+        parkingLot.subscribeAgentForParticularStrategies(NotificationStatus.EIGHTY_FULL, parkingLotObserverList1);
 
         parkingLot.park(new Car(1));
         parkingLot.park(new Car(2));
         parkingLot.park(new Car(3));
         parkingLot.park(new Car(4));
-        assertEquals(NotificationStatus.EIGHTY_FULL, fbi1.notify);
-        assertEquals(NotificationStatus.EIGHTY_FULL, fbi2.notify);
-        assertEquals(NotificationStatus.EIGHTY_FULL, fbi3.notify);
 
+        assertEquals(NotificationStatus.SIXTY_FULL, fbi1.notify);
+        assertEquals(NotificationStatus.SIXTY_FULL, fbi2.notify);
+
+        assertEquals(NotificationStatus.EIGHTY_FULL, fbi3.notify);
+        assertEquals(NotificationStatus.EIGHTY_FULL, fbi4.notify);
 
     }
 

@@ -2,6 +2,18 @@ package org.demo;
 
 public enum NotificationStatus {
 
-    FULL,AVAILABLE,EIGHTY_FULL;
+    FULL(100),AVAILABLE(101),EIGHTY_FULL(80),SIXTY_FULL(60);
+
+    int value;
+
+    private  NotificationStatus(int value)
+    {
+        this.value = value;
+    }
+
+    public int getValue()
+    {
+        return  value;
+    }
 
 }

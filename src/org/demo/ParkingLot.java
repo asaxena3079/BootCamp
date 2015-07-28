@@ -8,6 +8,7 @@ public class ParkingLot {
     private float totalCapacity;
     private int countCapacity=0;
     List<ParkingLotObserver> observers = new ArrayList<ParkingLotObserver>();
+    Map<NotificationStatus,List<ParkingLotObserver>> observerss = new HashMap<>();
 
 
     public ParkingLot(int totalCapacity,ParkingLotObserver parkingLotObserver)
@@ -29,10 +30,7 @@ public class ParkingLot {
             countCapacity++;
             parkingMap.put(countCapacity,car);
 
-            if(isParkingEightyPercentFull())
-            {
-                notifyObservers(observers,NotificationStatus.EIGHTY_FULL);
-            }
+            notifyAllStrategies();
 
             if(isParkingFull())
             {
@@ -62,7 +60,7 @@ public class ParkingLot {
 
     public  boolean isParkingEightyPercentFull()
     {
-        if((float)parkingMap.size()*100/totalCapacity>=80)
+        if((float)parkingMap.size()*100/totalCapacity==80)
             return  true;
         else
             return false;
@@ -96,6 +94,12 @@ public class ParkingLot {
         return true;
     }
 
+    public boolean subscribeAgentForParticularStrategies(NotificationStatus notificationStatus,List<ParkingLotObserver>parkingLotObserverList)
+    {
+        observerss.put(notificationStatus,parkingLotObserverList);
+        return  true;
+    }
+
     //Delete an existin agent
     public boolean removeAgent(ParkingLotObserver fbiAgent)
     {
@@ -116,5 +120,18 @@ public class ParkingLot {
         }
     }
 
+    public void notifyAllStrategies()
+    {
+         for (Map.Entry<NotificationStatus, List<ParkingLotObserver>> status : observerss.entrySet())
+         {
+             //System.out.println(status.getKey() + "/" + status.getValue());
+             int statusValue = status.getKey().getValue();
+             if((float)parkingMap.size()*100/totalCapacity==statusValue)
+             {
+                 List<ParkingLotObserver> parkingLotObserverList = status.getValue();
+                 notifyObservers(parkingLotObserverList,status.getKey());
+             }
+         }
+}
 
 }
