@@ -6,13 +6,24 @@ public class ParkingLot {
 
     private ParkingLotObserver parkingLotObserver;
     private float totalCapacity;
+    private String name;
     private int countCapacity=0;
     List<ParkingLotObserver> observers = new ArrayList<ParkingLotObserver>();
     Map<NotificationStatus,List<ParkingLotObserver>> observerss = new HashMap<>();
 
+    public String getName() {
+        return name;
+    }
 
     public ParkingLot(int totalCapacity,ParkingLotObserver parkingLotObserver)
     {
+        this.totalCapacity = totalCapacity;
+        this.parkingLotObserver = parkingLotObserver;
+    }
+
+    public ParkingLot(String name,int totalCapacity,ParkingLotObserver parkingLotObserver)
+    {
+        this.name = name;
         this.totalCapacity = totalCapacity;
         this.parkingLotObserver = parkingLotObserver;
     }
@@ -34,6 +45,8 @@ public class ParkingLot {
 
             if(isParkingFull())
             {
+                parkingLotObserver.notified(NotificationStatus.FULL, this.name);
+
                 notifyOwner(parkingLotObserver, NotificationStatus.FULL);
 
                 notifyObservers(observers,NotificationStatus.FULL);
@@ -73,7 +86,9 @@ public class ParkingLot {
         {
             if(isParkingFull())
             {
-                parkingLotObserver.notified(NotificationStatus.AVAILABLE);
+                parkingLotObserver.notified(NotificationStatus.AVAILABLE, this.name);
+
+                parkingLotObserver.notified(NotificationStatus.AVAILABLE, this.name);
 
                 notifyObservers(observers, NotificationStatus.AVAILABLE);
             }
@@ -109,14 +124,14 @@ public class ParkingLot {
 
     public void notifyOwner(ParkingLotObserver parkingLotObserver, NotificationStatus notify)
     {
-        parkingLotObserver.notified(notify);
+        parkingLotObserver.notified(notify,"");
     }
 
     public void notifyObservers(List<ParkingLotObserver> observers, NotificationStatus notify)
     {
         for (ParkingLotObserver observer : observers)
         {
-            observer.notified(notify);
+            observer.notified(notify,"");
         }
     }
 

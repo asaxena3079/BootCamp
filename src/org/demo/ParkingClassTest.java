@@ -40,7 +40,7 @@ public class ParkingClassTest{
     }
 
     @Test
-    public void testParkWhenParkingEightyPercentFull() throws Exception{
+    public void testParkForDifferentStrategies() throws Exception{
 
         parkingLot = new ParkingLot(5, parkingLotObserver);
 
@@ -153,7 +153,7 @@ public class ParkingClassTest{
         NotificationStatus notify = null;
 
         @Override
-        public void notified(NotificationStatus notify)
+        public void notified(NotificationStatus notify,String name)
         {
             this.notify = notify;
         }
