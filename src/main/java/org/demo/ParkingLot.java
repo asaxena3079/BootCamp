@@ -14,7 +14,7 @@ public class ParkingLot {
     private String name;
     private int countCapacity=0;
     List<ParkingLotObserver> observers = new ArrayList<ParkingLotObserver>();
-    Map<NotificationStatus,List<ParkingLotObserver>> observerss = new HashMap<>();
+    Map<NotificationStatus,List<ParkingLotObserver>> observerss = new HashMap<NotificationStatus,List<ParkingLotObserver>>();
 
     public String getName() {
         return name;
@@ -38,7 +38,7 @@ public class ParkingLot {
         this.parkingLotObserver = parkingLotObserver;
     }
 
-    Map<Integer,Car> parkingMap = new HashMap<>();
+    Map<Integer,Car> parkingMap = new HashMap<Integer,Car>();
 
     //Park the car along with the check of parking full and notify Owner on full parking
     public int park(Car car)

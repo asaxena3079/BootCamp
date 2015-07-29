@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ParkingAttendant implements ParkingLotObserver{
 
-    Map<ParkingLot,Integer> parkingLotMap = new HashMap<>();
+    Map<ParkingLot,Integer> parkingLotMap = new HashMap<ParkingLot,Integer>();
 
     public void addParkingLot(ParkingLot parkingLot)
     {
@@ -18,33 +18,14 @@ public class ParkingAttendant implements ParkingLotObserver{
     public  Token parkCar(Car car)
     {
         ParkingLot parkingLot = getMaxCapacityParkingLot();
-        for (Map.Entry<ParkingLot,Integer> entry : parkingLotMap.entrySet())
-        {
-            if(entry.getValue()>0 && entry.getKey().equals(parkingLot))
-            {
-                int token = entry.getKey().park(car);
-                return new Token(entry.getKey(),token);
-            }
-        }
-        throw new ParkingFullException("No Space in any parking lot");
+        return new Token(parkingLot,parkingLot.park(car));
     }
 
     public Car unPark(Token token)
     {
-        ParkingLot parkingLot = token.getParkingLot();
-        int tokenNo = token.getTokenNo();
-
-        for (Map.Entry<ParkingLot,Integer> entry : parkingLotMap.entrySet())
-        {
-            if(parkingLot.equals(entry.getKey()))
-            {
-                return entry.getKey().unpark(tokenNo);
-            }
-        }
-        throw new CarNotFoundException("Car Not Found Exception");
+        return token.getParkingLot().unpark(token.getTokenNo());
     }
 
-    @Override
     public void notified(NotificationStatus notify, String name)
     {
         if(notify==NotificationStatus.PARK)
