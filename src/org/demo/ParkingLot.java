@@ -15,6 +15,11 @@ public class ParkingLot {
         return name;
     }
 
+    public  int getRemainingCapacity()
+    {
+        return ((int)totalCapacity-parkingMap.size());
+    }
+
     public ParkingLot(int totalCapacity,ParkingLotObserver parkingLotObserver)
     {
         this.totalCapacity = totalCapacity;
@@ -111,7 +116,7 @@ public class ParkingLot {
 
     public boolean subscribeAgentForParticularStrategies(NotificationStatus notificationStatus,List<ParkingLotObserver>parkingLotObserverList)
     {
-        observerss.put(notificationStatus,parkingLotObserverList);
+        observerss.put(notificationStatus, parkingLotObserverList);
         return  true;
     }
 
@@ -149,4 +154,19 @@ public class ParkingLot {
          }
 }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ParkingLot that = (ParkingLot) o;
+
+        return name.equals(that.name);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }

@@ -15,32 +15,30 @@ public class ParkingAttendant implements ParkingLotObserver{
         parkingLotMap.put(parkingLot, true);
     }
 
-    public  String parkCar(Car car)
+    public  Token parkCar(Car car)
     {
-        String attendantToken = null;
+        ParkingLot parkingLot = getMaxCapacityParkingLot();
         for (Map.Entry<ParkingLot,Boolean> entry : parkingLotMap.entrySet())
         {
-            if(entry.getValue()==true)
+            if(entry.getValue()==true && entry.getKey().equals(parkingLot))
             {
                 int token = entry.getKey().park(car);
-                attendantToken = entry.getKey().getName() + "-" + token;
-                return attendantToken;
+                return new Token(entry.getKey(),token);
             }
         }
         throw new ParkingFullException("No Space in any parking lot");
     }
 
-    public Car unPark(String attendantToken)
+    public Car unPark(Token token)
     {
-        String[] name_token = attendantToken.split("-");
-        String nameParkingLot = name_token[0];
-        int token = Integer.parseInt(name_token[1]);
+        ParkingLot parkingLot = token.getParkingLot();
+        int tokenNo = token.getTokenNo();
 
         for (Map.Entry<ParkingLot,Boolean> entry : parkingLotMap.entrySet())
         {
-            if(entry.getKey().getName().equals(nameParkingLot))
+            if(parkingLot.equals(entry.getKey()))
             {
-                return entry.getKey().unpark(token);
+                return entry.getKey().unpark(tokenNo);
             }
         }
         throw new CarNotFoundException("Car Not Found Exception");
@@ -72,6 +70,24 @@ public class ParkingAttendant implements ParkingLotObserver{
 
 
 
+    }
+
+    public ParkingLot getMaxCapacityParkingLot()
+    {
+        ParkingLot parkingLot= new ParkingLot("Random",0,new ParkingAttendant());
+
+        for (Map.Entry<ParkingLot,Boolean> entry : parkingLotMap.entrySet())
+        {
+            if(entry.getValue()==true)
+            {
+                if(entry.getKey().getRemainingCapacity()>parkingLot.getRemainingCapacity())
+                {
+                    parkingLot = entry.getKey();
+                }
+            }
+        }
+
+        return  parkingLot;
     }
 
 }
