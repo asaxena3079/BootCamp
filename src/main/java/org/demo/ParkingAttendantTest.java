@@ -9,7 +9,13 @@ public class ParkingAttendantTest {
     @Test
     public void testParkCar() throws Exception
     {
-        ParkingAttendant parkingAttendant = new ParkingAttendant();
+        ParkingLotSelectionStrategy parkingLotSelectionStrategy = new ParkingLotSelectionStrategy() {
+            public NotificationStatus apply() {
+                return NotificationStatus.MAXFREESPACE;
+            }
+        };
+
+        ParkingAttendant parkingAttendant = new ParkingAttendant(parkingLotSelectionStrategy);
 
         ParkingLot parkingLot1 = new ParkingLot("A",2,parkingAttendant);
         ParkingLot parkingLot2 = new ParkingLot("B",5,parkingAttendant);
@@ -29,7 +35,13 @@ public class ParkingAttendantTest {
     @Test
     public void testPaarkingWhenOneIsFull() throws Exception
     {
-        ParkingAttendant parkingAttendant = new ParkingAttendant();
+        ParkingLotSelectionStrategy parkingLotSelectionStrategy = new ParkingLotSelectionStrategy() {
+            public NotificationStatus apply() {
+                return NotificationStatus.MAXFREESPACE;
+            }
+        };
+
+        ParkingAttendant parkingAttendant = new ParkingAttendant(parkingLotSelectionStrategy);
 
         ParkingLot parkingLot1 = new ParkingLot("A",5,parkingAttendant);
         ParkingLot parkingLot2 = new ParkingLot("B",2,parkingAttendant);
@@ -59,5 +71,31 @@ public class ParkingAttendantTest {
         Car car6 = new Car(6);
         Token token6 = new Token(parkingLot1,5);
         assertEquals(token6, parkingAttendant.parkCar(car6));
+    }
+
+    @Test
+    public  void testParkCarAccordingToStrategyForParking()
+    {
+        ParkingLotSelectionStrategy parkingLotSelectionStrategy = new ParkingLotSelectionStrategy() {
+            public NotificationStatus apply() {
+                return NotificationStatus.MAXCAPACITY;
+            }
+        };
+
+        ParkingAttendant parkingAttendant = new ParkingAttendant(parkingLotSelectionStrategy);
+
+        ParkingLot parkingLot1 = new ParkingLot("A",2,parkingAttendant);
+        ParkingLot parkingLot2 = new ParkingLot("B",5,parkingAttendant);
+
+        parkingAttendant.addParkingLot(parkingLot1);
+        parkingAttendant.addParkingLot(parkingLot2);
+
+
+
+        Car car = new Car(1);
+        Token token = new Token(parkingLot2,1);
+
+        assertEquals(token,parkingAttendant.parkCar(car));
+        assertEquals(car, parkingAttendant.unPark(token));
     }
 }

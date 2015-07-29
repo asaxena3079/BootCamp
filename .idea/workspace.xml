@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04abed30-bdfc-4c32-a04d-5e37937b0e74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_9_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/demo/ParkingLotSelectionStrategy.java" />
+      <change type="DELETED" beforePath="G:\BootCamp\junit-4.7.jar" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\Car.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\CarAlreadyPresent.class" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\out\production\ParkingLot\org\demo\CarNotFoundException.class" afterPath="" />
@@ -32,9 +34,11 @@
       <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\ParkingLot.java" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\ParkingLotObserver.java" afterPath="" />
       <change type="DELETED" beforePath="G:\BootCamp\src\org\demo\Token.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java" afterPath="$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java" afterPath="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendantTest.java" afterPath="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendantTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ParkingLot.iml" afterPath="$PROJECT_DIR$/ParkingLot.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ParkingLot.iws" />
@@ -109,27 +113,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParkingAttendant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java">
+      <file leaf-file-name="NotificationStatus.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-              <folding>
-                <element signature="method#addParkingLot#0;class#ParkingAttendant#0" expanded="false" />
-                <element signature="method#parkCar#0;class#ParkingAttendant#0" expanded="false" />
-                <element signature="method#notified#0;class#ParkingAttendant#0" expanded="false" />
-                <element signature="method#getMaxCapacityParkingLot#0;class#ParkingAttendant#0" expanded="false" />
-              </folding>
+              <caret line="4" column="112" selection-start-line="4" selection-start-column="112" selection-end-line="4" selection-end-column="112" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ParkingAttendant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+              <folding>
+                <element signature="method#ParkingAttendant#0;class#ParkingAttendant#0" expanded="false" />
+                <element signature="method#addParkingLot#0;class#ParkingAttendant#0" expanded="false" />
+                <element signature="method#parkCar#0;class#ParkingAttendant#0" expanded="false" />
+                <element signature="method#notified#0;class#ParkingAttendant#0" expanded="false" />
+                <element signature="method#getMaxFreeSpaceParkingLot#0;class#ParkingAttendant#0" expanded="false" />
+                <element signature="method#getMaxCapcityParkingLot#0;class#ParkingAttendant#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,12 +143,23 @@
       <file leaf-file-name="ParkingAttendantTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendantTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22405271">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.44810542">
+              <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
               <folding>
                 <element signature="method#testParkCar#0;class#ParkingAttendantTest#0" expanded="false" />
                 <element signature="method#testPaarkingWhenOneIsFull#0;class#ParkingAttendantTest#0" expanded="false" />
+                <element signature="method#testParkCarAccordingToStrategyForParking#0;class#ParkingAttendantTest#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParkingLotSelectionStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingLotSelectionStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,10 +169,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -188,9 +205,12 @@
         <option value="$PROJECT_DIR$/src/org/demo/ParkingClassTest.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingLot.java" />
         <option value="$PROJECT_DIR$/src/org/demo/ParkingAttendant.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/demo/ParkingLot.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/demo/ParkingLotSelectionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendantTest.java" />
       </list>
     </option>
   </component>
@@ -657,11 +677,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.50292826" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5058565" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26573938" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -822,14 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.112026356">
-          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -854,14 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33278418">
@@ -883,26 +887,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingLotSelectionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding>
+            <element signature="method#ParkingAttendant#0;class#ParkingAttendant#0" expanded="false" />
             <element signature="method#addParkingLot#0;class#ParkingAttendant#0" expanded="false" />
             <element signature="method#parkCar#0;class#ParkingAttendant#0" expanded="false" />
             <element signature="method#notified#0;class#ParkingAttendant#0" expanded="false" />
-            <element signature="method#getMaxCapacityParkingLot#0;class#ParkingAttendant#0" expanded="false" />
+            <element signature="method#getMaxFreeSpaceParkingLot#0;class#ParkingAttendant#0" expanded="false" />
+            <element signature="method#getMaxCapcityParkingLot#0;class#ParkingAttendant#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/NotificationStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="112" selection-start-line="4" selection-start-column="112" selection-end-line="4" selection-end-column="112" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/demo/ParkingAttendantTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22405271">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.44810542">
+          <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
           <folding>
             <element signature="method#testParkCar#0;class#ParkingAttendantTest#0" expanded="false" />
             <element signature="method#testPaarkingWhenOneIsFull#0;class#ParkingAttendantTest#0" expanded="false" />
+            <element signature="method#testParkCarAccordingToStrategyForParking#0;class#ParkingAttendantTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
